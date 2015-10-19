@@ -1,0 +1,16 @@
+extends layout
+block content
+  .col-lg-4.col-lg-offset-4
+    form(id="login" action="/register" method="POST")
+      .form-group
+        label(for='email') Email
+        input.form-control(id="email" type="text" name="email" placeholder="Please enter your email address")
+      .form-group
+        label(for='password') Password
+        input.form-control(id="password" type="password" placeholder="Please enter your password" name="password")
+      .form-group
+        label(for='passwordConfirm') Confirm Password
+        input.form-control(id="passwordConfirm" type="password" placeholder="Confirm your password" name="passwordConfirm")
+      .form-group
+        input.btn.btn-primary(type="submit" value="Register")
+    | Already a user?  <a href='/login'>Login</a>
