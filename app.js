@@ -10,6 +10,7 @@ var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
+var students = require('./routes/students/index');
 
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/authentication-assessment')
 var app = express();
@@ -25,11 +26,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({
+  name: 'session',
   keys: [process.env.KEY1, process.env.KEY2]
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/students', students);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

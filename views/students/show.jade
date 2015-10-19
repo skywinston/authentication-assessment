@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  .container.col-lg-6.col-lg-offset-3
+    h1.page-header= student.name
+    .panel.panel-info
+      .panel-heading 
+        h5.panel-title Phone Number
+      .panel-body
+        h5= student.phoneNumber
+    a.btn.btn-primary(href="/students") Back to All Students

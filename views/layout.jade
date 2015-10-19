@@ -20,11 +20,18 @@ html(lang="en")
             a.navbar-brand(href='#') Authentication Assessment
           // Collect the nav links, forms, and other content for toggling
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
-            ul.nav.navbar-nav.navbar-right
-              li 
-                a(href='/login') Login
-              li 
-                a(href='/register') Register
+            if(!user)
+              ul.nav.navbar-nav.navbar-right
+                li 
+                  a(href='/login') Login
+                li 
+                  a(href='/register') Register
+            if(user)
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a= user
+                li 
+                  a(href="/logout") Logout
           // /.navbar-collapse
         // /.container-fluid
     block content

@@ -1,6 +1,10 @@
 extends layout
 block content
   .col-lg-4.col-lg-offset-4
+    if (errors)
+      .alert.alert-danger
+        for error in errors
+          p= error
     form(id="login" action="/login" method="POST")
       .form-group
         .form-group

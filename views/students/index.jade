@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  .container.col-lg-6.col-lg-offset-3
+    h1.page-header Welcome to the Student Center
+    if (!students)
+      h3 There are no students yet.
+    if (students)
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Student Name
+            th Phone Number
+            th Details 
+        tbody
+        for student in students
+            tr
+              td= student.name
+              td= student.phoneNumber
+              td
+                a(href='/students/#{student._id}') View
+    a.btn.btn-primary(href='/students/new') Add a Student
+    

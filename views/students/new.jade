@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  .col-lg-6.col-lg-offset-3
+    if errors
+      .alert.alert-danger
+        for error in errors
+          p= error
+    h1 Add a Student
+    form(id='newStudent' action='/students' method="POST")
+      .form-group
+        label(for='name')
+        input.form-control(id='name' name='name' type='text' placeholder="Enter the student's first and last name")
+      .form-group
+        label(for='phoneNumber')
+        input.form-control(id="phoneNumber" name="phoneNumber" type="text" placeholder="Enter the student's phone number")
+      .form-group
+        input.btn.btn-primary(type="submit" value="Add Student")
